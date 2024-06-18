@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>文章列表</title>
+    <style>
+        body {
+            background-image: url('image/Water effect.png');
+            margin: 0;
+            padding: 0;
+            font-family: "华文行楷";
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            height: auto;
+        }
+        .main {
+			margin-left: 5%;
+            width: 90%;
+            min-width: 400px;
+            height: auto;
+            border-radius: 20px;
+            background-color: #fff;
+            opacity: 0.9;
+            padding: 1rem;
+            font-family: '微软黑体';
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .info-left, .main {
+                width: 80%;
+                min-width: unset;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="main">
+            <div id="markdown-content"></div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('markdown/非线性规划.md')
+                .then(response => response.text())
+                .then(text => {
+                    // 配置 marked 以使用 highlight.js 进行代码高亮
+                    marked.setOptions({
+                        highlight: function (code, lang) {
+                            return hljs.highlightAuto(code, [lang]).value;
+                        }
+                    });
+
+                    // 将 Markdown 转换为 HTML
+                    const html = marked.parse(text);
+
+                    // 将 HTML 插入到页面中的某个元素中
+                    document.getElementById('markdown-content').innerHTML = html;
+
+                    // 对代码块进行高亮处理
+                    document.querySelectorAll('pre code').forEach((block) => {
+                        hljs.highlightBlock(block);
+                    });
+                });
+        });
+    </script>
+</body>
+</html>

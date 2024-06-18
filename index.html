@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <title>首页</title>
+  <style>
+    :root {
+      --primary-color: rgba(13, 110, 139, 0.75);
+      --overlay-color: rgba(24, 39, 51 , 0.85);
+      --menu-speed: 0.75s;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+0      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.4;
+    }
+    
+    .container {
+      max-width: 960px;
+      margin: auto;
+      overflow: hidden;
+      padding: 0 3rem;
+    }
+    
+    .showcase {
+      background: var(--primary-color);
+      color: #fff;
+      height: 100vh;
+      position: relative;
+    }
+    
+    .showcase:before {
+      content: '';
+      background: url('https://images.pexels.com/photos/533923/pexels-photo-533923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center center/cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    
+    .showcase .showcase-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100%;
+      padding: 0 2rem;
+    }
+    
+    .showcase h1 {
+      font-size: 2rem;
+    }
+    
+    .showcase p {
+      font-size: 1rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      border: none;
+      background: var(--primary-color);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      margin-top: 1rem;
+      transition: opacity 1s ease-in-out;
+      text-decoration: none;
+    }
+    
+    .btn:hover {
+      opacity: 0.7;
+    }
+
+    .menu-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    
+    .menu-wrap .toggler {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      opacity: 0;
+    }
+    
+    .menu-wrap .hamburger {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 60px;
+      height: 60px;
+      padding: 1rem;
+      background: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-wrap .hamburger > div {
+      position: relative;
+      flex: none;
+      width: 100%;
+      height: 2px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s ease;
+    }
+
+    .menu-wrap .hamburger > div::before,
+    .menu-wrap .hamburger > div::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: -10px;
+      width: 100%;
+      height: 2px;
+      background: inherit;
+    }
+    
+    .menu-wrap .hamburger > div::after {
+      top: 10px;
+    }
+    
+    .menu-wrap .toggler:checked + .hamburger > div {
+      transform: rotate(135deg);
+    }
+    
+    .menu-wrap .toggler:checked + .hamburger > div:before,
+    .menu-wrap .toggler:checked + .hamburger > div:after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+
+    .menu-wrap .toggler:checked:hover + .hamburger > div {
+      transform: rotate(225deg);
+    }
+
+    .menu-wrap .toggler:checked ~ .menu {
+      visibility: visible;
+    }
+    
+    .menu-wrap .toggler:checked ~ .menu > div {
+      transform: scale(1);
+      transition-duration: var(--menu-speed);
+    }
+    
+    .menu-wrap .toggler:checked ~ .menu > div > div {
+      opacity: 1;
+      transition:  opacity 0.4s ease 0.4s;
+    }
+    
+    .menu-wrap .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      visibility: hidden;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .menu-wrap .menu > div {
+      background: var(--overlay-color);
+      border-radius: 50%;
+      width: 200vw;
+      height: 200vw;
+      display: flex;
+      flex: none;
+      align-items: center;
+      justify-content: center;
+      transform: scale(0);
+      transition: all 0.4s ease;
+    }
+    
+    .menu-wrap .menu > div > div {
+      text-align: center;
+      max-width: 90vw;
+      max-height: 100vh;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    
+    .menu-wrap .menu > div > div > ul > li {
+      list-style: none;
+      color: #fff;
+      font-size: 1.5rem;
+      padding: 1rem;
+    }
+    
+    .menu-wrap .menu > div > div > ul > li > a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.4s ease;
+    }
+    
+    .top {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .top h1 {
+      color: aqua;
+      font-size: 2rem;
+      font-weight: bold;
+      font-family: "华文行楷";
+    }
+    
+    .top h3 {
+      color: aqua;
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-family: "华文行楷";
+    }
+    
+    .time {
+      color: aqua;
+      font-size: 1rem;
+      font-weight: bold;
+      font-family: "华文行楷";
+      margin-top: 10px;
+    }
+    
+    .photo {
+      width: 70%;
+	  height: 20%;
+	  border-radius: 50%;
+      background-image: url('image/depth of.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: inline-block;
+    }
+
+    @media (min-width: 768px) {
+      .showcase h1 {
+        font-size: 4rem;
+      }
+      
+      .showcase p {
+        font-size: 1.3rem;
+      }
+
+      .top h1 {
+        font-size: 4rem;
+      }
+
+      .top h3 {
+        font-size: 3rem;
+      }
+
+      .time {
+        font-size: 2rem;
+      }
+
+      .photo {
+        width: 30%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="menu-wrap">
+    <input type="checkbox" class="toggler">
+    <div class="hamburger"><div></div></div>
+    <div class="menu">
+      <div>
+        <div>
+          <ul>
+            <li><a href="个人资料卡.html">个人资料卡</a></li>
+            <li><a href="个人感悟薄.html">个人感悟薄</a></li>
+            <li><a href="博客列表.html">博客列表</a></li>
+            <li><a href="收藏.html">♥收藏♥</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="showcase">
+    <div class="container showcase-inner">
+		<div class="photo"></div>
+      <div class="top">
+        <h1>面朝大海,春暖花开</h1>
+        <h3>相遇的时间点:</h3>
+        <div class="time" id="time">你我相遇的时间</div>
+      </div>
+      <h1>欢迎来到我的个人博客</h1>
+      <p>我们无法预知某个瞬间的价值 直到它成为过去</p>
+      <a href="个人资料卡.html" class="btn">点击进入</a>
+    </div>
+  </header>
+
+  <script>
+    function updateTime() {
+      const timeElement = document.getElementById('time');
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+      timeElement.textContent = `${hours}:${minutes}:${seconds}`;
+    }
+    
+    setInterval(updateTime, 1000);
+    updateTime(); // initial call to set the time immediately on load
+  </script>
+</body>
+</html>

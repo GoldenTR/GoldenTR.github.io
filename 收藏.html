@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>收藏</title>
+	<link rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <style>
+        body {
+            background-image: url('image/Cozy Room.png');
+            margin: 0;
+            padding: 0;
+            font-family: "华文行楷";
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        a:hover {
+            text-decoration: none;
+            color: orange;
+        }
+        a:active {
+            text-decoration: line-through;
+            color: cadetblue;
+        }
+        .top {
+            width: 100%;
+            text-align: center;
+            opacity: 1;
+            color: yellow;
+        }
+        .top h1 {
+            margin: 0;
+            padding: 2rem;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+        }
+        .info-left {
+            width: 15%;
+            min-width: 200px;
+            height: 750px;
+            border-radius: 20px;
+            background-color: #2a2a2a;
+            opacity: 0.8;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+        }
+        .photo {
+            width: 60%;
+            height: 100px;
+            margin: 5% auto;
+            border-radius: 50%;
+            background-image: url('image/QQ图片20240617171143.jpg');
+            background-position: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .txt {
+            margin: 5% 0;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            background-image: url('image/粒子爆炸散开.gif');
+            background-repeat: no-repeat;
+            background-position: 50%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .qq, .wechat, .github {
+            width: 33%;
+            height: 70px;
+            float: left;
+            text-align: center;
+            background-position: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .qq {
+            background-image: url('image/QQ.png');
+        }
+        .wechat {
+            background-image: url('image/wechat.png');
+        }
+        .github {
+            background-image: url('image/github.png');
+        }
+        .pane {
+            float: left;
+            width: 100%;
+            line-height: 10rem;
+            text-align: center;
+            font-family: "华文新魏";
+            font-size: 2rem;
+            margin: 0.5rem 0;
+        }
+        .pane:hover {
+            background-color: black;
+        }
+        .main {
+            width: 75%;
+            min-width: 400px;
+            border-radius: 20px;
+            background-color: #2a2a2a;
+            opacity: 0.8;
+            padding: 1rem;
+			font-family: '微软黑体';
+        }
+		section {
+		  height: 100%;
+		}
+		.container1 {
+		  max-width: 1200px;
+		  margin: 0 auto;
+		  padding: 40px 0;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  height: 100%;
+		  min-height: 710px;
+		}
+		h3 {
+		  font-size: 30px;
+		  margin-bottom: 20px;
+		  font-weight: 600;
+		  color: #101010;
+		}
+		p {
+		  font-size: 18px;
+		  font-weight: 400;
+		  color: #101010;
+		  overflow: hidden;
+		  text-overflow: ellipsis;
+		  display: -webkit-box;
+		  -webkit-line-clamp: 3;
+		  -webkit-box-orient: vertical;
+		}
+		a.zoomed p {
+		  -webkit-line-clamp: unset;
+		}
+		a.zoomed .card-inner {
+		  overflow: auto;
+		}
+		a.opacity-0 {
+		  opacity: 0;
+		}
+		.overflow {
+		  overflow: hidden;
+		}
+		.overflow .background {
+		  opacity: 0 !important;
+		}
+		
+		.background {
+		  background-color: #8ee9ed;
+		  border-radius: 20px;
+		  position: absolute;
+		  transition: all 0.4s ease-in-out;
+		  opacity: 0;
+		}
+		.card-wraper {
+		  display: grid;
+		  grid-template-columns: repeat(3, minmax(0, 1fr));
+		  justify-content: space-between;
+		}
+		a.card {
+		  text-decoration: none;
+		  height: 100%;
+		  width: 100%;
+		  display: inline-block;
+		  position: relative;
+		  padding: 10px;
+		}
+		.card-main {
+		  border: 1px solid #1a5582;
+		  padding: 40px;
+		  width: 100%;
+		  height: 100%;
+		  min-height: 300px;
+		  border-radius: 20px;
+		  overflow: hidden;
+		  background-color: #fffae8;
+		}
+		.card:hover .card-main {
+		  position: relative;
+		  z-index: 20;
+		}
+		.card-inner {
+		  position: relative;
+		  z-index: 50;
+		  height: 100%;
+		}
+		.card-inner div {
+		  height: 100%;
+		}
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .info-left, .main {
+                width: 80%;
+                min-width: unset;
+                margin: 0.5rem 0;
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <h1>翠幕深庭，露红晚、闲花自发</h1>
+    </div>
+    <div class="container">
+        <div class="info-left" id="info-left">
+            <div class="photo"></div>
+            <div class="txt">码龄2年</div>
+            <div class="txt">IP: 湖南省</div>
+            <a href="https://user.qzone.qq.com/1480067971/infocenter?via=toolbar">
+                <div class="qq"></div>
+            </a>
+            <a href="https://wx.qq.com/">
+                <div class="wechat"></div>
+            </a>
+            <a href="https://github.com/GoldenTR">
+                <div class="github"></div>
+            </a>
+            <div class="pane"><a href="个人资料卡.html">个人资料卡</a></div>
+            <div class="pane"><a href="个人感悟薄.html">个人感悟簿</a></div>
+            <div class="pane"><a href="博客列表.html">博客列表</a></div>
+            <div class="pane" style="background-color: darkblue;"><a href="#">♥收藏♥</a></div>
+        </div>
+        <div class="main">
+			<section>
+			   <!-- <div class="container max-w-5xl mx-auto px-8"> -->
+			     <div class="card-wraper">
+			       <div class="background" id="background"></div>
+			       <a href="javascript:void(0)" class="card relative group block p-2 h-full w-full">
+			         <div class="card-main">
+			           <div class="card-inner">
+			             <div>
+			               <h3>最小生成树(MST)(最小连通子图)</h3>
+			               <p>一、最小生成树及其性质
+							最小生成树是在一个给定的无向图G（V,E）中求一棵树T，使得这棵树拥有图G的所有顶点，且所有边都是来自图G的边，并且满足整棵树的边权之和最小。
+							从定义来看，就是要求一个连通方案，使其可以从任一点出发到达连通图的任一点，且这个方案的边权之和需要最小，即求最小连通子图。
+							最小生成树的性质：
+							①最小生成树是树，因此其边数等于顶点数减1，且树内一定不会有环。
+							②对给定的图G(V,E),其最小生成树可以不唯一，但其边权之和一定是唯一的。
+							③由于最小生成树是在无向图上生成的，因此其根结点可以是这棵树上的任意一个结点。<br />                   
+							原文链接：https://blog.csdn.net/Arabot_/article/details/130382319</p>
+			             </div>
+			           </div>
+			         </div>
+			       </a>
+			       <a href="javascript:void(0)" class="card relative group block p-2 h-full w-full">
+			         <div class="card-main">
+			           <div class="card-inner">
+			             <div>
+			               <h3>在VMware上安装Ubuntu详细教程</h3>
+			               <p>作为全球最流行且最有影响力的Linux开源系统之一，Ubuntu自发布以来在应用体验方面有较大幅度的提升。
+						   下面详细介绍安装基于VMware Workstation Pro上Ubuntu操作系统的配置安装。<br />
+						   原文链接：https://blog.csdn.net/GRT609/article/details/123931322</p>
+			             </div>
+			           </div>
+			         </div>
+			       </a>
+			       <a href="javascript:void(0)" class="card relative group block p-2 h-full w-full">
+			         <div class="card-main">
+			           <div class="card-inner">
+			             <div>
+			               <h3>最长上升子序列(LIS)详解</h3>
+			               <p> 关于LIS部分，本篇博客讲一下LIS的概念定义和理解，以及求LIS的三种方法，分别是O(n^2)的DP，O(nlogn)的二分+贪心法，以及O(nlogn)的树状数组优化的DP。<br />
+						   最长上升子序列（Longest  Increasing Subsequence），简称LIS，也有些情况求的是最长非降序子序列，二者区别就是序列中是否可以有相等的数。
+						   假设我们有一个序列 b i，当b1 < b2 < … < bS的时候，我们称这个序列是上升的。对于给定的一个序列(a1, a2, …, aN)，
+						   我们也可以从中得到一些上升的子序列(ai1, ai2, …, aiK)，这里1 <= i1 < i2 < … < iK <= N，
+						   但必须按照从前到后的顺序。比如，对于序列(1, 7, 3, 5, 9, 4, 8)，我们就会得到一些上升的子序列，如(1, 7, 9), (3, 4, 8), (1, 3, 5, 8)等等，而这些子序列中最长的（如子序列(1, 3, 5, 8) ），它的长度为4，因此该序列的最长上升子序列长度为4。<br />
+						   原文链接：https://blog.csdn.net/lxt_Lucia/article/details/81206439</p>
+			             </div>
+			           </div>
+			         </div>
+			       </a>
+			       <a href="javascript:void(0)" class="card relative group block p-2 h-full w-full">
+			         <div class="card-main">
+			           <div class="card-inner">
+			             <div>
+			               <h3>最长公共子序列(LCS)详解</h3>
+			               <p>最长公共子序列，英文缩写为LCS（Longest Common Subsequence）。其定义是，一个序列 S ，如果分别是两个或多个已知序列的子序列，且是所有符合此条件序列中最长的，则 S 称为已知序列的最长公共子序列。
+							如果觉得抽象不好理解，那么咱们还是采用学习LIS的时候的方式。
+							首先，让我们先来看一下子串、子序列还有公共子序列的概念(在上篇LIS中也曾涉及过) ，我们以字符子串和字符子序列为例，更为形象，也能顺带着理解字符的子串和子序列：
+						   （1）字符子串：指的是字符串中连续的n个字符，如abcdefg中，ab，cde，fg等都属于它的字串。
+						   （2）字符子序列：指的是字符串中不一定连续但先后顺序一致的n个字符，即可以去掉字符串中的部分字符，但不可改变其前后顺序。如abcdefg中，acdg，bdf属于它的子序列，而bac，dbfg则不是，因为它们与字符串的字符顺序不一致。
+							(3)  公共子序列：如果序列C既是序列A的子序列，同时也是序列B的子序列，则称它为序列A和序列B的公共子序列。如对序列 1,3,5,4,2,6,8,7和序列 1,4,8,6,7,5 来说，序列1,8,7是它们的一个公共子序列。
+							那么现在，我们再通俗的总结一下最长公共子序列（LCS）：就是A和B的公共子序列中长度最长的（包含元素最多的）
+							仍然用序列1,3,5,4,2,6,8,7和序列1,4,8,6,7,5为例，它们的最长公共子序列有1,4,8,7和1,4,6,7两种，但最长公共子序列的长度是4。由此可见，最长公共子序列（LCS）也不一定唯一。<br />
+							原文链接：https://blog.csdn.net/lxt_Lucia/article/details/81209962</p>
+			             </div>
+			           </div>
+			         </div>
+			       </a>
+			       <a href="javascript:void(0)" class="card relative group block p-2 h-full w-full">
+			         <div class="card-main">
+			           <div class="card-inner">
+			             <div>
+			               <h3>取模运算详解</h3>
+			               <p>取模运算是求两个数相除的余数。
+							取模运算（Modulo Operation）和取余运算（Remainder Operation）两个概念有重叠的部分但又不完全一致。
+							主要的区别在于对负整数进行除法运算时操作不同。
+							取模主要是用于计算机术语中。取余则更多是数学概念。<br />
+							原文链接：https://blog.csdn.net/m0_74826183/article/details/134388853</p>
+			             </div>
+			           </div>
+			         </div>
+			       </a>
+			       <a href="javascript:void(0)" class="card relative group block p-2 h-full w-full">
+			         <div class="card-main">
+			           <div class="card-inner">
+			             <div>
+			               <h3>【动态规划】01背包问题</h3>
+			               <p>根据动态规划解题步骤（问题抽象化、建立模型、寻找约束条件、判断是否满足最优性原理、找大问题与小问题的递推关系式、填表、寻找解组成）找出01背包问题的最优解以及解组成，然后编写代码实现。<br />
+						   动态规划与分治法类似，都是把大问题拆分成小问题，通过寻找大问题与小问题的递推关系，解决一个个小问题，最终达到解决原问题的效果。但不同的是，分治法在子问题和子子问题等上被重复计算了很多次，而动态规划则具有记忆性，通过填写表把所有已经解决的子问题答案纪录下来，在新问题里需要用到的子问题可以直接提取，避免了重复计算，从而节约了时间，所以在问题满足最优性原理之后，用动态规划解决问题的核心就在于填表，表填写完毕，最优解也就找到。
+						   最优性原理是动态规划的基础，最优性原理是指“多阶段决策过程的最优决策序列具有这样的性质：不论初始状态和初始决策如何，对于前面决策所造成的某一状态而言，其后各阶段的决策序列必须构成最优策略”。<br />
+						   原文链接：https://blog.csdn.net/qq_38410730/article/details/81667885</p>
+			             </div>
+			           </div>
+			         </div>
+			       </a>
+					<a href="javascript:void(0)" class="card relative group block p-2 h-full w-full">
+					  <div class="card-main">
+						<div class="card-inner">
+						  <div>
+							<h3>滑动窗口详解</h3>
+							<p>滑动窗口是一种基于双指针的一种思想，两个指针指向的元素之间形成一个窗口。窗口有两类，一种是固定大小类的窗口，一类是大小动态变化的窗口。
+							利用滑动窗口获取平滑的数据，如一段连续时间的数据平均值，能够有更好的稳定性，如温度监测。
+							在具体使用之前，我们知道窗口实际是两个指针之间形成的区域，那关键就是这两个指针是如何移动的。<br />
+							原文链接：https://blog.csdn.net/yjpeng125/article/details/120833365?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522171872525016777224457635%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=171872525016777224457635&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-120833365-null-null.142^v100^pc_search_result_base1&utm_term=%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3&spm=1018.2226.3001.4187</p>
+						  </div>
+						</div>
+					  </div>
+					</a>
+					<a href="javascript:void(0)" class="card relative group block p-2 h-full w-full">
+					  <div class="card-main">
+						<div class="card-inner">
+						  <div>
+							<h3>OI Wiki——学习算法的途径</h3>
+							<p>OI（Olympiad in Informatics，信息学奥林匹克竞赛）在中国起源于 1984 年，是五大高中学科竞赛之一。
+							ICPC（International Collegiate Programming Contest，国际大学生程序设计竞赛）由 ICPC 基金会（ICPC Foundation）举办，是最具影响力的大学生计算机竞赛。由于以前 ACM 赞助这个竞赛，也有很多人习惯叫它 ACM 竞赛。
+							OI Wiki 致力于成为一个免费开放且持续更新的 编程竞赛（competitive programming） 知识整合站点，大家可以在这里获取与竞赛相关的、有趣又实用的知识。我们为大家准备了竞赛中的基础知识、常见题型、解题思路以及常用工具等内容，帮助大家更快速深入地学习编程竞赛中涉及到的知识。<br />
+							原文链接：https://oi-wiki.org//</p>
+						  </div>
+						</div>
+					  </div>
+					</a>
+					<a href="javascript:void(0)" class="card relative group block p-2 h-full w-full">
+					  <div class="card-main">
+						<div class="card-inner">
+						  <div>
+							<h3>洛谷刷题平台入门</h3>
+							<p>平台链接：https://www.luogu.com.cn/</p>
+						  </div>
+						</div>
+					  </div>
+					</a>
+					<a href="javascript:void(0)" class="card relative group block p-2 h-full w-full">
+					  <div class="card-main">
+						<div class="card-inner">
+						  <div>
+							<h3>计算机操作系统知识点总结</h3>
+							<p>原文链接：https://blog.csdn.net/Royalic/article/details/119999404?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522171868895116800180649588%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=171868895116800180649588&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-119999404-null-null.142^v100^pc_search_result_base1&utm_term=%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F&spm=1018.2226.3001.4187</p>
+						  </div>
+						</div>
+					  </div>
+					</a>
+					<a href="javascript:void(0)" class="card relative group block p-2 h-full w-full">
+					  <div class="card-main">
+						<div class="card-inner">
+						  <div>
+							<h3>【MySQL】数据库基础知识</h3>
+							<p>数据库（database）是一整套的数据存储容灾解决方案。是用来组织、存储和管理数据的仓库。
+							当今世界充斥着大量的数据。数据的来源有很多，比如出行记录、消费记录、浏览的网页、发送的消息等等。除了文本类型的数据，图像、音乐、声音也都是数据。为了方便管理互联网世界中的数据，就有了数据库管理系统的概念（简称：数据库）。用户可以对数据库中的数据进行新增、查询、更新、删除等操作。<br />
+							原文链接：https://blog.csdn.net/m0_51064412/article/details/124829675?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522171872570016800180675537%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=171872570016800180675537&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-5-124829675-null-null.142^v100^pc_search_result_base1&utm_term=%E6%95%B0%E6%8D%AE%E5%BA%93&spm=1018.2226.3001.4187</p>
+						  </div>
+						</div>
+					  </div>
+					</a>
+					<a href="javascript:void(0)" class="card relative group block p-2 h-full w-full">
+					  <div class="card-main">
+						<div class="card-inner">
+						  <div>
+							<h3>WEB入门一 网页设计基础</h3>
+							<p>在当今社会，网页是网络信息共享和发布的主要形式。而HTML (Hyper Text Mark-up Language)，即超文本标记语言，是创建网页基础。本章将学习HTML文档的基本结构、组成HTML文档的各类常见标签。HTML 标签可以说明文字、图形、动画、声音、表格和链接等。本章重点是各种标签的基本语法和用法。<br />
+							原文链接：https://blog.csdn.net/zhangchen124/article/details/55097794</p>
+						  </div>
+						</div>
+					  </div>
+					</a>
+			     </div>
+			   <!-- </div> -->
+			 </section>
+        </div>
+    </div>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+		  var cards = document.querySelectorAll("a.card");
+		  var background = document.querySelector(".background");
+		
+		  // Store the index of the last hovered card
+		  var lastHoveredCardIndex = localStorage.getItem("lastHoveredCardIndex") || 0;
+		
+		  // Set the background to the last hovered card by default
+		  var cardRect = cards[lastHoveredCardIndex].getBoundingClientRect();
+		  var x = cardRect.left + window.scrollX + cardRect.width / 2;
+		  var y = cardRect.top + window.scrollY + cardRect.height / 2;
+		
+		  background.style.width = cardRect.width + "px";
+		  background.style.height = cardRect.height + "px";
+		  background.style.transform = `translate(${x - cardRect.width / 2}px, ${
+		    y - cardRect.height / 2
+		  }px)`;
+		  background.style.opacity = "0"; // Set opacity to 0 when the page loads
+		
+		  cards.forEach(function (card, index) {
+		    card.addEventListener("mouseenter", function (e) {
+		      // If the card is zoomed in, return early to prevent the hover effect
+		      if (card.classList.contains("zoomed")) {
+		        return;
+		      }
+		
+		      var rect = card.getBoundingClientRect();
+		      x = rect.left + window.scrollX + rect.width / 2;
+		      y = rect.top + window.scrollY + rect.height / 2;
+		
+		      background.style.width = rect.width + "px";
+		      background.style.height = rect.height + "px";
+		      background.style.transform = `translate(${x - rect.width / 2}px, ${
+		        y - rect.height / 2
+		      }px)`;
+		      background.style.opacity = "1"; // Change opacity to 1 when a card is hovered over
+		      background.style.top = "0%";
+		      background.style.left = "0%";
+		      background.style.transformOrigin = "center";
+		      // Store the index of the hovered card
+		      localStorage.setItem("lastHoveredCardIndex", index);
+		    });
+		
+		    card.addEventListener("mouseleave", function (e) {
+		      background.style.opacity = "0"; // Change opacity back to 0 when the mouse leaves a card
+		      // Reset the background size when the mouse leaves the card
+		      background.style.width = "0px";
+		      background.style.height = "0px";
+		    });
+		
+		    card.addEventListener("click", function () {
+		      if (card.classList.contains("zoomed")) {
+		        card.classList.remove("zoomed");
+		        card.style.transform = "none";
+		        card.style.position = "relative";
+		        card.style.width = "unset";
+		        card.style.height = "unset";
+		        card.style.top = "0";
+		        card.style.left = "0";
+		        card.style.zIndex = "0";
+		
+		        // Remove the 'overflow' class from the body when a card is unzoomed
+		        document.body.classList.remove("overflow");
+		
+		        // Remove the 'opacity-0' class from other <a> tags when a card is unzoomed
+		        cards.forEach(function (otherCard) {
+		          if (otherCard !== card) {
+		            otherCard.classList.remove("opacity-0");
+		          }
+		        });
+		      } else {
+		        card.classList.add("zoomed");
+		        card.style.position = "fixed";
+		        card.style.top = "50%";
+		        card.style.left = "50%";
+		        requestAnimationFrame(function () {
+		          card.style.transform = "translate(-50%, -50%)";
+		        });
+		        card.style.width = "90vw";
+		        card.style.height = "90vh";
+		        card.style.zIndex = "1000";
+		
+		        // Add the 'overflow' class to the body when a card is zoomed
+		        document.body.classList.add("overflow");
+		
+		        // Add the 'opacity-0' class to other <a> tags when a card is zoomed
+		        cards.forEach(function (otherCard) {
+		          if (otherCard !== card) {
+		            otherCard.classList.add("opacity-0");
+		          }
+		        });
+		      }
+		    });
+		  });
+		});
+		
+	</script>
+</body>
+</html>

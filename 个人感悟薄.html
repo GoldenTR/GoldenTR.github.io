@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>个人资料卡</title>
+	<link rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('image/Pirates.png');
+            margin: 0;
+            padding: 0;
+            font-family: "华文行楷";
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        a:hover {
+            text-decoration: none;
+            color: orange;
+        }
+        a:active {
+            text-decoration: line-through;
+            color: cadetblue;
+        }
+        .top {
+            width: 100%;
+            text-align: center;
+            opacity: 1;
+            color: aquamarine;
+        }
+        .top h1 {
+            margin: 0;
+            padding: 2rem;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            height: auto;
+        }
+        .info-left {
+            width: 15%;
+            min-width: 200px;
+            height: 750px;
+            border-radius: 20px;
+            background-color: #2a2a2a;
+            opacity: 0.8;
+            padding: 1rem;
+        }
+        .photo {
+            width: 60%;
+            height: 100px;
+            margin: 5% auto;
+			border-radius: 50%;
+            background-image: url('image/QQ图片20240617171143.jpg');
+            background-position: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .txt {
+            margin: 5% 0;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            background-image: url('image/粒子爆炸散开.gif');
+            background-repeat: no-repeat;
+            background-position: 50%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .qq, .wechat, .github {
+            width: 33%;
+            height: 70px;
+            float: left;
+            text-align: center;
+            background-position: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .qq {
+            background-image: url('image/QQ.png');
+        }
+        .wechat {
+            background-image: url('image/wechat.png');
+        }
+        .github {
+            background-image: url('image/github.png');
+        }
+        .pane {
+			float: left;
+            width: 100%;
+            line-height: 10rem;
+            text-align: center;
+            font-family: "华文新魏";
+            font-size: 2rem;
+            margin: 0.5rem 0;
+        }
+        .pane:hover {
+            background-color: black;
+        }
+        .main {
+            width: 75%;
+            min-width: 400px;
+            height: 750px;
+            border-radius: 20px;
+            background-color: #2a2a2a;
+            opacity: 0.8;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+        .image{
+			width: 80%;
+			height: 60%;
+			margin-left: 10%;
+			background-color: aqua;
+			background-position: 50%;
+		}
+		.feeling{
+			width: 80%;
+			margin-top: 5%;
+			margin-left: 10%;	
+		}
+		.feeling p{
+			font-size: 2rem;
+			color: white;
+		}
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .info-left, .main {
+                width: 80%;
+                min-width: unset;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <h1>我是旧时代的残党，新时代没有承载我的船</h1>
+    </div>
+    <div class="container">
+        <div class="info-left">
+            <div class="photo"></div>
+            <div class="txt">码龄2年</div>
+            <div class="txt">IP: 湖南省</div>
+            <a href="https://user.qzone.qq.com/1480067971/infocenter?via=toolbar">
+                <div class="qq"></div>
+            </a>
+            <a href="https://wx.qq.com/">
+                <div class="wechat"></div>
+            </a>
+            <a href="https://github.com/GoldenTR">
+                <div class="github"></div>
+            </a>
+            <div class="pane"><a href="个人资料卡.html">个人资料卡</a></div>
+            <div class="pane" style="background-color: darkblue;"><a href="#">个人感悟簿</a></div>
+            <div class="pane"><a href="博客列表.html">博客列表</a></div>
+            <div class="pane"><a href="收藏.html">♥收藏♥</a></div>
+        </div>
+        <div class="main">
+            <div class="image" style="background-image: url('image/Arctic Spirit by.png');"></div>
+			<div class="feeling">
+				<p>如果累了，就去看看烟花吧。<br>
+				人间烟火气，最抚凡人心。</p><br>
+				<p style="white-space:pre">————2022年5月31日</p>
+			</div>
+			<div class="image" style="background-image: url('image/just fly.png');"></div>
+			<div class="feeling">
+				<p>又是一年毕业季，大家又在想什么呢。
+				青春本就是一场马不停蹄的相遇和告别，悟已往之不谏,知来者之可追。</p><br>
+				<p style="white-space:pre">————2022年6月9日</p>
+			</div>
+			<div class="image" style="background-image: url('image/laundry day.png');"></div>
+			<div class="feeling">
+				<p>人生是一段旅程，走过的路，就是你编织的生活，我们无法预料以后的路途。
+				但是，我们能把握现在的自己，珍惜身边的一切，脚踏实地的走，走好自己的路，不要在生命里给自己留下遗憾的景色。
+				接下来的路就要靠自己咯，十八岁快乐！</p><br>
+				<p style="white-space:pre">————2022年7月9日</p>
+			</div>
+			<div class="image" style="background-image: url('image/wake up.png');"></div>
+			<div class="feeling">
+				<p>只有敢于和过去道别，才会被奖励新的开始</p><br>
+				<p style="white-space:pre">————2022年9月10日</p>
+			</div>
+        </div>
+    </div>
+</body>
+</html>

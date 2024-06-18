@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>博客列表</title>
+	<link rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('image/Water effect.png');
+            margin: 0;
+            padding: 0;
+            font-family: "华文行楷";
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        a:hover {
+            text-decoration: none;
+            color: orange;
+        }
+        a:active {
+            text-decoration: line-through;
+            color: cadetblue;
+        }
+        .top {
+            width: 100%;
+            text-align: center;
+            opacity: 1;
+            color: palevioletred;
+        }
+        .top h1 {
+            margin: 0;
+            padding: 2rem;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+        }
+        .info-left {
+            width: 15%;
+            min-width: 200px;
+            height: 750px;
+            border-radius: 20px;
+            background-color: #fff;
+            opacity: 0.8;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+        }
+        .photo {
+            width: 60%;
+            height: 100px;
+            margin: 5% auto;
+            border-radius: 50%;
+            background-image: url('image/QQ图片20240617171143.jpg');
+            background-position: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .txt {
+            margin: 5% 0;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            background-image: url('image/粒子爆炸散开.gif');
+            background-repeat: no-repeat;
+            background-position: 50%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .qq, .wechat, .github {
+            width: 33%;
+            height: 70px;
+            float: left;
+            text-align: center;
+            background-position: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .qq {
+            background-image: url('image/QQ.png');
+        }
+        .wechat {
+            background-image: url('image/wechat.png');
+        }
+        .github {
+            background-image: url('image/github.png');
+        }
+        .pane {
+            float: left;
+            width: 100%;
+            line-height: 10rem;
+            text-align: center;
+            font-family: "华文新魏";
+            font-size: 2rem;
+            margin: 0.5rem 0;
+        }
+        .pane:hover {
+            background-color: #ffe2ff;
+        }
+        .main {
+            width: 75%;
+            min-width: 400px;
+            border-radius: 20px;
+            background-color: #fff;
+            opacity: 0.8;
+            padding: 1rem;
+        }
+        .num {
+            float: left;
+            margin-top: 1%;
+            margin-left: 1%;
+            width: 1%;
+            height: 25px;
+            background-color: brown;
+        }
+        .title {
+            width: 100%;
+            font-family: '微软黑体';
+        }
+        .simple {
+            width: 80%;
+            margin-left: 1%;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .info-left, .main {
+                width: 80%;
+                min-width: unset;
+                margin: 0.5rem 0;
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <h1>凛冬散尽，星河长明</h1>
+    </div>
+    <div class="container">
+        <div class="info-left" id="info-left">
+            <div class="photo"></div>
+            <div class="txt">码龄2年</div>
+            <div class="txt">IP: 湖南省</div>
+            <a href="https://user.qzone.qq.com/1480067971/infocenter?via=toolbar">
+                <div class="qq"></div>
+            </a>
+            <a href="https://wx.qq.com/">
+                <div class="wechat"></div>
+            </a>
+            <a href="https://github.com/GoldenTR">
+                <div class="github"></div>
+            </a>
+            <div class="pane"><a href="个人资料卡.html">个人资料卡</a></div>
+            <div class="pane"><a href="个人感悟薄.html">个人感悟簿</a></div>
+            <div class="pane" style="background-color: aqua;"><a href="#">博客列表</a></div>
+            <div class="pane"><a href="收藏.html">♥收藏♥</a></div>
+        </div>
+        <div class="main">
+            <div class="title">
+                <div class="num"></div>
+                <a href="数据库课堂挑战.html"><h1>数据库课堂挑战</h1></a>
+                <div class="simple">
+                    <p>数据库课堂挑战 
+                    A查询课程名中含“Database”的课程的课程号，课程名，学分
+                    select course_id,title,credits 
+                    from course 
+                    where title like '%Database%'
+                    B给学号67024的学生选上2007年春季学期电子工程学院（“Elec . Eng.”）开设的所有课
+                    insert into takes..</p>
+                </div>
+                <div class="num"></div>
+                <a href="matlab数字图像处理.html"><h1>matlab数字图像处理</h1></a>
+                <div class="simple">
+                    <p>matlab数字图像处理
+                    基础概念
+                    空域
+                    ![image-20230714181700901](https://hila-1300222503.cos.ap-shanghai.myqcloud.com/md_image/image-20230714181700901.png)
+                    频域
+                    ![image-20230714181753381](https://hila-1300222503.cos.ap-shanghai.myqcloud.com/md_image/image-20230714181753381.png)..</p>
+                </div>
+                <div class="num"></div>
+                <a href="matlab图论.html"><h1>matlab图论</h1></a>
+                <div class="simple">
+                    <p>matlab图论
+                    基础plot函数
+                    plot(G) 绘制图 G 中的节点和边。
+                    plot(G,LineSpec) 设置线型、标记符号和颜色。例如，plot(G,'-or') 对节点使用红色圆圈，对边使用红线。
+                    plot(___,Name,Value) 使用一个或多个名称-值对组参数（采用上述语法中的任意输入参数组合）指定的其他选项。
+                    plot(G,'Layout','circle') 绘制图形的圆环形布局..</p>
+                </div>
+                <div class="num"></div>
+                <a href="非线性规划.html"><h1>非线性规划</h1></a>
+                <div class="simple">
+                    <p>非线性规划
+                    思路利用凸规划求解
+                    凸规划
+                    定义
+                    目标函数为凸函数
+                    不等式约束条件为凸函数
+                    等式约束条件为线性函数
+                    线性函数可视为凸函数也可视为凹函数，故线性规划也属于凸规划
+                    判定凸函数..</p>
+                </div>
+                <div class="num"></div>
+                <a href="矩阵乘法和元素级乘法.html"><h1>矩阵乘法和元素级乘法</h1></a>
+                <div class="simple">
+                    <p>矩阵乘法和元素级乘法
+                    元素级乘法（Element-wise Multiplication）：
+                    对于两个具有相同维度的数组（可以是向量、矩阵或张量），元素级乘法是指按元素逐个相乘的运算。
+                    如果两个数组的维度不同，元素级乘法无法进行..</p>
+                </div>
+                <div class="num"></div>
+                <a href="逻辑下标.html"><h1>逻辑下标</h1></a>
+                <div class="simple">
+                    <p>逻辑下标
+                    假定 `X` 是一个普通矩阵，`L` 是一个由某个逻辑运算生成的同等大小的矩阵。那么，`X(L)` 指定 `L` 的元素，其中 `L` 的元素为非零。
+                    可作if使用
+                    利用逻辑下标去除零值...</p>
+                </div>
+				<div class="num"></div>
+				<a href="递归&分治.html"><h1>递归&分治</h1></a>
+				<div class="simple">
+				    <p>递归 & 分治
+				    本页面将介绍递归与分治算法的区别与结合运用。
+					递归（英语：Recursion），在数学和计算机科学中是指在函数的定义中使用函数自身的方法，在计算机科学中还额外指一种通过重复将问题分解为同类的子问题而解决问题的方法。
+					要理解递归，就得先理解什么是递归..</p>
+				</div>
+				<div class="num"></div>
+				<a href="address match indirect.html"><h1>address match indirect</h1></a>
+				<div class="simple">
+				    <p>address match indirect
+				    样例
+				    ![image-20230403163100606](https://hila-1300222503.cos.ap-shanghai.myqcloud.com/md_image/image-20230403163100606.png)
+				    ![image-20230403163921129](https://hila-1300222503.cos.ap-shanghai.myqcloud.com/md_image/image-20230403163921129.png)
+				    ## 按前后顺序用到MATCH、ADDRESS、INDIRECT
+				    ### MATCH：用来找内容在哪个行或列（所以只能确定一个行或一个列，不能找到单元格）
+				    ### 样例
+				    ![image-20230403163226215](https://hila-1300222503.cos.ap-shanghai.myqcloud.com/md_image/image-20230403163226215.png)
+				    match函数用来找到Lookup_value里的内容在Lookup_array里的哪个位置（最后的位置用相对位置来表示）..</p>
+				</div>
+				<div class="num"></div>
+				<a href="LINGO.html"><h1>LINGO</h1></a>
+				<div class="simple">
+				    <p>LINGO
+				    ## 适用：解决线性规划、非线性规划、整数规划等优化问题，在求解最优化问题相较于matlab更为简便
+				    ## 程序结构
+				    * MODEL
+				    * SETS:“SIX”为集合名称，“S1..S6”表示索引是从S1到S6，“E”为数据
+				    ```lingo
+				    	SETS:
+				    		SIX/S1..S6/:E;
+				    		EIGHT/E1..E8/:D;
+				    		SIXEIGHT(SIX,EIGHT):X,C;
+				    
+				    	ENDSETS
+				    ```..</p>
+				</div>
+				
+				<div class="num"></div>
+				<a href="PV和FV.html"><h1>PV和FV</h1></a>
+				<div class="simple">
+				    <p>PV和FV
+				    ### 示例
+				    假设您正在考虑进行一项投资，投资额为1000元，投资期限为5年，预计年利率为5%。您希望计算出该投资在未来的价值。
+				    使用`FV`函数可以计算出在给定的利率下，经过5年后投资的**未来价值**：
+				    ```
+				    FV(0.05, 5, 0, -1000)
+				    ```
+				    ### 解释：
+				    - 利率：0.05，即5%的年利率。
+				    - 期数：5，表示投资期限为5年。
+				    - 每期支付金额：0，因为此处没有额外的每期支付。
+				    - 初始投资金额：-1000，表示投资额为1000元（负值表示投资支出）..</p>
+				</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
